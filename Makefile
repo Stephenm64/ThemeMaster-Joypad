@@ -1,7 +1,7 @@
 CC = gcc
 CCFLAGS = -W -Wall
 
-BINARY = ../AnberPorts/bin/oga_controls
+BINARY = ../controls
 LIBRARIES = -levdev
 SOURCES = "main.c"
 
