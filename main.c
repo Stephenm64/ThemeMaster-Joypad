@@ -416,6 +416,7 @@ int main(int argc, char* argv[]) {
     strcat(quit_command, argv[1]);
     strcat(quit_command, " | xargs kill -9");
 
+    //initkeycodes()
     if (strcmp(argv[2], "anbernic") == 0) {
       back_key = 311;
       start_key = 310;
@@ -431,7 +432,6 @@ int main(int argc, char* argv[]) {
       l2_key = 314;
       r1_key = 309;
       r2_key = 315;
-      //initkeycodes()
       strcpy(inputstr, "/dev/input/by-path/platform-ff300000.usb-usb-0:1.2:1.0-event-joystick");
     }
 		else if (strcmp(argv[2], "oga") == 0) {
@@ -449,7 +449,6 @@ int main(int argc, char* argv[]) {
       l2_key = 706;
       r1_key = 311;
       r2_key = 707;
-      //initkeycodes()
       strcpy(inputstr, "/dev/input/by-path/platform-odroidgo2-joypad-event-joystick");
 		}
     else if (strcmp(argv[2], "ogs") == 0) {
@@ -467,7 +466,6 @@ int main(int argc, char* argv[]) {
       l2_key = 311;
       r1_key = 312;
       r2_key = 313;
-      //initkeycodes()
       strcpy(inputstr, "/dev/input/by-path/platform-odroidgo3-joypad-event-joystick");
     }
     else {
