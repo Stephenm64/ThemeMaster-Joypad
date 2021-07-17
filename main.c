@@ -434,7 +434,7 @@ int main(int argc, char* argv[]) {
       r2_key = 315;
       strcpy(inputstr, "/dev/input/by-path/platform-ff300000.usb-usb-0:1.2:1.0-event-joystick");
     }
-		else if (strcmp(argv[2], "oga") == 0) {
+	else if (strcmp(argv[2], "oga") == 0) {
       back_key = 704;
       start_key = 709;
       a_key = 305;
@@ -450,7 +450,7 @@ int main(int argc, char* argv[]) {
       r1_key = 311;
       r2_key = 707;
       strcpy(inputstr, "/dev/input/by-path/platform-odroidgo2-joypad-event-joystick");
-		}
+	}
     else if (strcmp(argv[2], "ogs") == 0) {
       back_key = 704;
       start_key = 705;
@@ -467,6 +467,23 @@ int main(int argc, char* argv[]) {
       r1_key = 312;
       r2_key = 313;
       strcpy(inputstr, "/dev/input/by-path/platform-odroidgo3-joypad-event-joystick");
+    }
+    else if (strcmp(argv[2], "chi") == 0) {
+      back_key = 314;
+      start_key = 315;
+      a_key = 305;
+      b_key = 304;
+      x_key = 307;
+      y_key = 308;
+      up_key = 544;
+      down_key = 545;
+      left_key = 546;
+      right_key = 547;
+      l1_key = 310;
+      l2_key = 312;
+      r1_key = 311;
+      r2_key = 313;
+      strcpy(inputstr, "/dev/input/by-path/platform-gameforce-gamepad-event-joystick");
     }
     else {
       printf("Error lauching, unrecognised parameters\n");
