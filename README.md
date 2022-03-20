@@ -1,2 +1,2 @@
 # ThemeMaster-Joystick
-Emulated D-Pad and required keyboard keys for ThemeMaster for Anbernic, OGA and OGS joypads.
+Emulated D-Pad and required keyboard keys for ThemeMaster on Anbernic, OGA, OGS and Chi joypads.
