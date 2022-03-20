@@ -434,6 +434,23 @@ int main(int argc, char* argv[]) {
       r2_key = 315;
       strcpy(inputstr, "/dev/input/by-path/platform-ff300000.usb-usb-0:1.2:1.0-event-joystick");
     }
+  else if (strcmp(argv[2], "rg552") == 0) {
+      back_key = 311;
+      start_key = 310;
+      a_key = 304;
+      b_key = 305;
+      x_key = 306;
+      y_key = 307;
+      up_key = 17;
+      down_key = 17;
+      left_key = 16;
+      right_key = 16;
+      l1_key = 308;
+      l2_key = 314;
+      r1_key = 309;
+      r2_key = 315;
+      strcpy(inputstr, "/dev/input/by-path/platform-singleadc-joypad-event-joystick");
+    }
 	else if (strcmp(argv[2], "oga") == 0) {
       back_key = 704;
       start_key = 709;
