@@ -552,6 +552,11 @@ int main(int argc, char* argv[]) {
       if (strcmp(argv[2], "anbernic") == 0) {
         handle_event_anbernic(ev_joypad.type, ev_joypad.code, ev_joypad.value);
       }
+
+else if (strcmp(argv[2], "rg552") == 0) {
+        handle_event_anbernic(ev_joypad.type, ev_joypad.code, ev_joypad.value);
+      }
+
       else {
         handle_event_ogx(ev_joypad.type, ev_joypad.code, ev_joypad.value);
       }
