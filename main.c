@@ -116,6 +116,7 @@ void initkeycodes() {
   r2_key = libevdev_event_code_from_name(event_type, "BTN_TL2");
 }
 
+//handle event for anbernic devices
 void handle_event_anbernic(int type, int code, int value) {
   if (type == 1) {
 		if (code == back_key && value == 1) {
@@ -260,6 +261,7 @@ void handle_event_anbernic(int type, int code, int value) {
 	}
 }
 
+//handle event for oga, ogs, rk2020 and chi devices
 void handle_event_ogx(int type, int code, int value) {
   if (type == 1) {
 		if (code == back_key && value == 1) {
@@ -434,7 +436,7 @@ int main(int argc, char* argv[]) {
       r2_key = 315;
       strcpy(inputstr, "/dev/input/by-path/platform-ff300000.usb-usb-0:1.2:1.0-event-joystick");
     }
-  else if (strcmp(argv[2], "rg552") == 0) {
+    else if (strcmp(argv[2], "rg552") == 0) {
       back_key = 311;
       start_key = 310;
       a_key = 304;
@@ -451,7 +453,7 @@ int main(int argc, char* argv[]) {
       r2_key = 315;
       strcpy(inputstr, "/dev/input/by-path/platform-singleadc-joypad-event-joystick");
     }
-	else if (strcmp(argv[2], "oga") == 0) {
+	  else if (strcmp(argv[2], "oga") == 0) {
       back_key = 704;
       start_key = 709;
       a_key = 305;
@@ -467,7 +469,7 @@ int main(int argc, char* argv[]) {
       r1_key = 311;
       r2_key = 707;
       strcpy(inputstr, "/dev/input/by-path/platform-odroidgo2-joypad-event-joystick");
-	}
+	  }
     else if (strcmp(argv[2], "ogs") == 0) {
       back_key = 704;
       start_key = 705;
@@ -549,14 +551,9 @@ int main(int argc, char* argv[]) {
 		rc_joypad = libevdev_next_event(dev_joypad, LIBEVDEV_READ_FLAG_NORMAL, &ev_joypad);
 
 		if (rc_joypad == LIBEVDEV_READ_STATUS_SUCCESS) {
-      if (strcmp(argv[2], "anbernic") == 0) {
+      if (strcmp(argv[2], "anbernic") == 0 || strcmp(argv[2], "rg552") == 0) {
         handle_event_anbernic(ev_joypad.type, ev_joypad.code, ev_joypad.value);
       }
-
-else if (strcmp(argv[2], "rg552") == 0) {
-        handle_event_anbernic(ev_joypad.type, ev_joypad.code, ev_joypad.value);
-      }
-
       else {
         handle_event_ogx(ev_joypad.type, ev_joypad.code, ev_joypad.value);
       }
