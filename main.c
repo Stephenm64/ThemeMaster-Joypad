@@ -121,7 +121,6 @@ void handle_event_anbernic(int type, int code, int value) {
   if (type == 1) {
 		if (code == back_key && value == 1) {
 			quit = 0;
-
 			emit(EV_KEY, back, 1);
 			emit(EV_SYN, SYN_REPORT, 0);
 		}
@@ -138,7 +137,6 @@ void handle_event_anbernic(int type, int code, int value) {
 				system(quit_command);
 				exit(0);
 			}
-
 			emit(EV_KEY, start, 1);
 			emit(EV_SYN, SYN_REPORT, 0);
 		}
@@ -234,7 +232,6 @@ void handle_event_anbernic(int type, int code, int value) {
 		if (code == down_key && value == 1) {
 			emit(EV_KEY, down, 1);
 			emit(EV_SYN, SYN_REPORT, 0);
-
 		}
 		else if (code == down_key && value == 0) {
 			emit(EV_KEY, down, 0);
@@ -266,7 +263,6 @@ void handle_event_ogx(int type, int code, int value) {
   if (type == 1) {
 		if (code == back_key && value == 1) {
 			quit = 0;
-
 			emit(EV_KEY, back, 1);
 			emit(EV_SYN, SYN_REPORT, 0);
 		}
@@ -283,7 +279,6 @@ void handle_event_ogx(int type, int code, int value) {
 				system(quit_command);
 				exit(0);
 			}
-
 			emit(EV_KEY, start, 1);
 			emit(EV_SYN, SYN_REPORT, 0);
 		}
@@ -411,7 +406,7 @@ int main(int argc, char* argv[]) {
   // second argument to be the name of gamepad
   // argv[0] = controls
   // argv[1] = ThemeMaster
-  // argv[2] = oga, ogs, anbernic
+  // argv[2] = oga, ogs, anbernic, chi, rg552
   // argc must be 3
 	if (argc == 3) {
     strcpy(quit_command, "pgrep -f ");
@@ -551,10 +546,11 @@ int main(int argc, char* argv[]) {
 		rc_joypad = libevdev_next_event(dev_joypad, LIBEVDEV_READ_FLAG_NORMAL, &ev_joypad);
 
 		if (rc_joypad == LIBEVDEV_READ_STATUS_SUCCESS) {
-      if (strcmp(argv[2], "anbernic") == 0 || strcmp(argv[2], "rg552") == 0) {
+      if (strcmp(argv[2], "anbernic") == 0) {
         handle_event_anbernic(ev_joypad.type, ev_joypad.code, ev_joypad.value);
       }
       else {
+        // argv[2] = "rg552", "oga", "ogs", "chi"
         handle_event_ogx(ev_joypad.type, ev_joypad.code, ev_joypad.value);
       }
 		}
