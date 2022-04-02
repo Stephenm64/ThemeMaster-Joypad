@@ -449,6 +449,7 @@ int main(int argc, char* argv[]) {
       strcpy(inputstr, "/dev/input/by-path/platform-singleadc-joypad-event-joystick");
     }
 	  else if (strcmp(argv[2], "oga") == 0) {
+      //devices confirmed : rk2020
       back_key = 704;
       start_key = 709;
       a_key = 305;
