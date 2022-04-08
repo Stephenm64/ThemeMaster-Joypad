@@ -434,21 +434,6 @@ int main(int argc, char* argv[]) {
 
     if (strcmp(argv[3], "debug") == 0) {
   	   debug = 1;
-       oskeycodes();
-       printf("lib_back_key:%d\n", lib_back_key);
-       printf("lib_start_key:%d\n", lib_start_key);
-       printf("lib_a_key:%d\n", lib_a_key);
-       printf("lib_b_key:%d\n", lib_b_key);
-       printf("lib_x_key:%d\n", lib_x_key);
-       printf("lib_y_key:%d\n", lib_y_key);
-       printf("lib_up_key:%d\n", lib_up_key);
-       printf("lib_down_key:%d\n", lib_down_key);
-       printf("lib_left_key:%d\n", lib_left_key);
-       printf("lib_right_key:%d\n", lib_right_key);
-       printf("lib_l1_key:%d\n", lib_l1_key);
-       printf("lib_l2_key:%d\n", lib_l2_key);
-       printf("lib_r1_key:%d\n", lib_r1_key);
-       printf("lib_r2_key:%d\n", lib_r2_key);
   	}
 
     if (strcmp(argv[2], "anbernic") == 0) {
@@ -546,6 +531,39 @@ int main(int argc, char* argv[]) {
     printf("Error lauching, missing required parameters\n");
 		exit(0);
 	}
+
+  if (debug) {
+    oskeycodes();
+    printf("back_key:%d\n", back_key);
+    printf("start_key:%d\n", start_key);
+    printf("a_key:%d\n", a_key);
+    printf("b_key:%d\n", b_key);
+    printf("x_key:%d\n", x_key);
+    printf("y_key:%d\n", y_key);
+    printf("up_key:%d\n", up_key);
+    printf("down_key:%d\n", down_key);
+    printf("left_key:%d\n", left_key);
+    printf("right_key:%d\n", right_key);
+    printf("l1_key:%d\n", l1_key);
+    printf("l2_key:%d\n", l2_key);
+    printf("r1_key:%d\n", r1_key);
+    printf("r2_key:%d\n", r2_key);
+
+    printf("lib back_key:%d\n", lib_back_key);
+    printf("lib start_key:%d\n", lib_start_key);
+    printf("lib a_key:%d\n", lib_a_key);
+    printf("lib b_key:%d\n", lib_b_key);
+    printf("lib x_key:%d\n", lib_x_key);
+    printf("lib y_key:%d\n", lib_y_key);
+    printf("lib up_key:%d\n", lib_up_key);
+    printf("lib down_key:%d\n", lib_down_key);
+    printf("lib left_key:%d\n", lib_left_key);
+    printf("lib right_key:%d\n", lib_right_key);
+    printf("lib l1_key:%d\n", lib_l1_key);
+    printf("lib l2_key:%d\n", lib_l2_key);
+    printf("lib r1_key:%d\n", lib_r1_key);
+    printf("lib r2_key:%d\n", lib_r2_key);
+  }
 
 	uinp_fd = open("/dev/uinput", O_WRONLY | O_NONBLOCK);
 	if (uinp_fd < 0) {
