@@ -18,7 +18,7 @@
 * Authored by: Kris Henriksen <krishenriksen.work@gmail.com>
 * Modified by : JohnIrvine1433 for ThemeMaster
 #
-* ThemeMaster-Joystick
+* ThemeMaster-Joypad
 */
 
 #include <errno.h>
@@ -64,20 +64,20 @@ int r1_key;
 int r2_key;
 
 // Define variables to be used for libevdev key codes
-int lib_back_key;
-int lib_start_key;
-int lib_a_key;
-int lib_b_key;
-int lib_x_key;
-int lib_y_key;
-int lib_up_key;
-int lib_down_key;
-int lib_left_key;
-int lib_right_key;
-int lib_l1_key;
-int lib_l2_key;
-int lib_r1_key;
-int lib_r2_key;
+// int lib_back_key;
+// int lib_start_key;
+// int lib_a_key;
+// int lib_b_key;
+// int lib_x_key;
+// int lib_y_key;
+// int lib_up_key;
+// int lib_down_key;
+// int lib_left_key;
+// int lib_right_key;
+// int lib_l1_key;
+// int lib_l2_key;
+// int lib_r1_key;
+// int lib_r2_key;
 
 // Set key names to be used for ThemeMaster
 short back = KEY_ESC;
@@ -109,29 +109,29 @@ void emit(int type, int code, int val) {
    write(uinp_fd, &ev, sizeof(ev));
 }
 
-void oskeycodes() {
-  unsigned int event_type = EV_KEY;
-  //based on Linux Gamepad Specification
-
-  lib_back_key = libevdev_event_code_from_name(event_type, "BTN_SELECT");
-  lib_start_key = libevdev_event_code_from_name(event_type, "BTN_START");
-  lib_a_key = libevdev_event_code_from_name(event_type, "BTN_A");
-  //a_key = libevdev_event_code_from_name(event_type, "BTN_EAST");
-  lib_b_key = libevdev_event_code_from_name(event_type, "BTN_B");
-  //b_key = libevdev_event_code_from_name(event_type, "BTN_SOUTH");
-  lib_x_key = libevdev_event_code_from_name(event_type, "BTN_X");
-  //x_key = libevdev_event_code_from_name(event_type, "BTN_NORTH");
-  lib_y_key = libevdev_event_code_from_name(event_type, "BTN_Y");
-  //y_key = libevdev_event_code_from_name(event_type, "BTN_SOUTH");
-  lib_up_key = libevdev_event_code_from_name(event_type, "BTN_DPAD_UP");
-  lib_down_key = libevdev_event_code_from_name(event_type, "BTN_DPAD_DOWN");
-  lib_left_key = libevdev_event_code_from_name(event_type, "BTN_DPAD_LEFT");
-  lib_right_key = libevdev_event_code_from_name(event_type, "BTN_DPAD_RIGHT");
-  lib_l1_key = libevdev_event_code_from_name(event_type, "BTN_TL");
-  lib_l2_key = libevdev_event_code_from_name(event_type, "BTN_TL2");
-  lib_r1_key = libevdev_event_code_from_name(event_type, "BTN_TR");
-  lib_r2_key = libevdev_event_code_from_name(event_type, "BTN_TR2");
-}
+// void libkeycodes() {
+//   unsigned int event_type = EV_KEY;
+//   //based on Linux Gamepad Specification
+//
+//   lib_back_key = libevdev_event_code_from_name(event_type, "BTN_SELECT");
+//   lib_start_key = libevdev_event_code_from_name(event_type, "BTN_START");
+//   lib_a_key = libevdev_event_code_from_name(event_type, "BTN_A");
+//   //a_key = libevdev_event_code_from_name(event_type, "BTN_EAST");
+//   lib_b_key = libevdev_event_code_from_name(event_type, "BTN_B");
+//   //b_key = libevdev_event_code_from_name(event_type, "BTN_SOUTH");
+//   lib_x_key = libevdev_event_code_from_name(event_type, "BTN_X");
+//   //x_key = libevdev_event_code_from_name(event_type, "BTN_NORTH");
+//   lib_y_key = libevdev_event_code_from_name(event_type, "BTN_Y");
+//   //y_key = libevdev_event_code_from_name(event_type, "BTN_SOUTH");
+//   lib_up_key = libevdev_event_code_from_name(event_type, "BTN_DPAD_UP");
+//   lib_down_key = libevdev_event_code_from_name(event_type, "BTN_DPAD_DOWN");
+//   lib_left_key = libevdev_event_code_from_name(event_type, "BTN_DPAD_LEFT");
+//   lib_right_key = libevdev_event_code_from_name(event_type, "BTN_DPAD_RIGHT");
+//   lib_l1_key = libevdev_event_code_from_name(event_type, "BTN_TL");
+//   lib_l2_key = libevdev_event_code_from_name(event_type, "BTN_TL2");
+//   lib_r1_key = libevdev_event_code_from_name(event_type, "BTN_TR");
+//   lib_r2_key = libevdev_event_code_from_name(event_type, "BTN_TR2");
+// }
 
 //handle event for anbernic devices (except from rg552)
 void handle_event_anbernic(int type, int code, int value) {
@@ -273,6 +273,10 @@ void handle_event_anbernic(int type, int code, int value) {
 			emit(EV_SYN, SYN_REPORT, 0);
 		}
 	}
+  if (debug) {
+    printf("type:%d code: %d value: %d\n", type, code, value);
+    fflush(stdout);
+  }
 }
 
 //handle event for oga, ogs, rk2020, rg552 and chi devices
@@ -413,6 +417,10 @@ void handle_event_ogx(int type, int code, int value) {
 			emit(EV_SYN, SYN_REPORT, 0);
 		}
 	}
+  if (debug) {
+    printf("type:%d code: %d value: %d\n", type, code, value);
+    fflush(stdout);
+  }
 }
 
 int main(int argc, char* argv[]) {
@@ -432,11 +440,14 @@ int main(int argc, char* argv[]) {
     strcat(quit_command, argv[1]);
     strcat(quit_command, " | xargs kill -9");
 
-    if (strcmp(argv[3], "debug") == 0) {
-  	   debug = 1;
-  	}
+    if (argc == 4) {
+      if (strcmp(argv[3], "debug") == 0) {
+  	     debug = 1;
+  	  }
+    }
 
     if (strcmp(argv[2], "anbernic") == 0) {
+      //devices confirmed : rg351 p/m/v
       back_key = 311;
       start_key = 310;
       a_key = 304;
@@ -471,7 +482,7 @@ int main(int argc, char* argv[]) {
       strcpy(inputstr, "/dev/input/by-path/platform-singleadc-joypad-event-joystick");
     }
 	  else if (strcmp(argv[2], "oga") == 0) {
-      //devices confirmed : rk2020
+      //devices confirmed : rk2020, rgb10
       back_key = 704;
       start_key = 709;
       a_key = 305;
@@ -532,39 +543,6 @@ int main(int argc, char* argv[]) {
 		exit(0);
 	}
 
-  if (debug) {
-    oskeycodes();
-    printf("back_key:%d\n", back_key);
-    printf("start_key:%d\n", start_key);
-    printf("a_key:%d\n", a_key);
-    printf("b_key:%d\n", b_key);
-    printf("x_key:%d\n", x_key);
-    printf("y_key:%d\n", y_key);
-    printf("up_key:%d\n", up_key);
-    printf("down_key:%d\n", down_key);
-    printf("left_key:%d\n", left_key);
-    printf("right_key:%d\n", right_key);
-    printf("l1_key:%d\n", l1_key);
-    printf("l2_key:%d\n", l2_key);
-    printf("r1_key:%d\n", r1_key);
-    printf("r2_key:%d\n", r2_key);
-
-    printf("lib back_key:%d\n", lib_back_key);
-    printf("lib start_key:%d\n", lib_start_key);
-    printf("lib a_key:%d\n", lib_a_key);
-    printf("lib b_key:%d\n", lib_b_key);
-    printf("lib x_key:%d\n", lib_x_key);
-    printf("lib y_key:%d\n", lib_y_key);
-    printf("lib up_key:%d\n", lib_up_key);
-    printf("lib down_key:%d\n", lib_down_key);
-    printf("lib left_key:%d\n", lib_left_key);
-    printf("lib right_key:%d\n", lib_right_key);
-    printf("lib l1_key:%d\n", lib_l1_key);
-    printf("lib l2_key:%d\n", lib_l2_key);
-    printf("lib r1_key:%d\n", lib_r1_key);
-    printf("lib r2_key:%d\n", lib_r2_key);
-  }
-
 	uinp_fd = open("/dev/uinput", O_WRONLY | O_NONBLOCK);
 	if (uinp_fd < 0) {
 		printf("Unable to open /dev/uinput\n");
@@ -602,10 +580,7 @@ int main(int argc, char* argv[]) {
 		rc_joypad = libevdev_next_event(dev_joypad, LIBEVDEV_READ_FLAG_NORMAL, &ev_joypad);
 
 		if (rc_joypad == LIBEVDEV_READ_STATUS_SUCCESS) {
-      if (debug) {
-        printf("type:%d code: %d value: %d\n", ev_joypad.type, ev_joypad.code, ev_joypad.value);
-      }
-      else if (strcmp(argv[2], "anbernic") == 0) {
+      if (strcmp(argv[2], "anbernic") == 0) {
         handle_event_anbernic(ev_joypad.type, ev_joypad.code, ev_joypad.value);
       }
       else {

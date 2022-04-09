@@ -1,7 +1,7 @@
 CC = gcc
 CCFLAGS = -W -Wall
 
-BINARY = controls
+BINARY = tm-joypad
 LIBRARIES = -levdev
 SOURCES = "main.c"
 INCLUDES = /usr/include/libevdev-1.0/
