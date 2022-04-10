@@ -1,5 +1,5 @@
 CC = gcc
-CCFLAGS = -W -Wall
+CCFLAGS = -W -Wall -std=c11
 
 BINARY = tm-joypad
 LIBRARIES = -levdev

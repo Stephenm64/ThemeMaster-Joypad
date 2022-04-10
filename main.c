@@ -589,7 +589,7 @@ int main(int argc, char* argv[]) {
       }
 		}
 
-		usleep(100);
+		sleep(0.0001);
 	} while (rc_joypad == LIBEVDEV_READ_STATUS_SYNC || rc_joypad == LIBEVDEV_READ_STATUS_SUCCESS || rc_joypad == -EAGAIN);
 
 	libevdev_free(dev_joypad);
