@@ -552,7 +552,7 @@ int main(int argc, char* argv[]) {
 	// Intialize the uInput device to NULL
 	memset(&uidev, 0, sizeof(uidev));
 
-	strncpy(uidev.name, "ThemeMaster Joystick", UINPUT_MAX_NAME_SIZE);
+	strncpy(uidev.name, "ThemeMaster Joypad", UINPUT_MAX_NAME_SIZE);
 	uidev.id.version = 1;
 	uidev.id.bustype = BUS_USB;
 	uidev.id.vendor = 0x1234; /* sample vendor */
