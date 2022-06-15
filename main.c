@@ -442,7 +442,9 @@ int main(int argc, char* argv[]) {
 
     if (argc == 4) {
       if (strcmp(argv[3], "debug") == 0) {
-  	     debug = 1;
+  	    debug = 1;
+       freopen("./debug/tm_joypad.log","a+",stdout);
+
   	  }
     }
 
@@ -569,7 +571,7 @@ int main(int argc, char* argv[]) {
 	write(uinp_fd, &uidev, sizeof(uidev));
 
 	if (ioctl(uinp_fd, UI_DEV_CREATE)) {
-		printf("Unable to create UINPUT device.");
+		printf("Unable to create UINPUT device\n");
 		return -1;
 	}
 
@@ -604,6 +606,6 @@ int main(int argc, char* argv[]) {
 	/* Clean up */
 	ioctl(uinp_fd, UI_DEV_DESTROY);
 	close(uinp_fd);
-
+   fclose(stdout);
 	return 0;
 }
