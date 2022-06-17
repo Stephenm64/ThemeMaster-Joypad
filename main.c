@@ -442,9 +442,8 @@ int main(int argc, char* argv[]) {
 
     if (argc == 4) {
       if (strcmp(argv[3], "debug") == 0) {
-  	    debug = 1;
-       freopen("./debug/tm_joypad.log","a+",stdout);
-
+  	     debug = 1;
+         freopen("./debug/tm_joypad.log","a+",stdout);
   	  }
     }
 
@@ -606,6 +605,6 @@ int main(int argc, char* argv[]) {
 	/* Clean up */
 	ioctl(uinp_fd, UI_DEV_DESTROY);
 	close(uinp_fd);
-   fclose(stdout);
+  fclose(stdout);
 	return 0;
 }
