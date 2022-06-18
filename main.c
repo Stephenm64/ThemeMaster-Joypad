@@ -444,6 +444,7 @@ int main(int argc, char* argv[]) {
       if (strcmp(argv[3], "debug") == 0) {
   	     debug = 1;
          freopen("./debug/tm_joypad.log","a+",stdout);
+         printf("**** INIT DEBUG MODE ****\n");
   	  }
     }
 
