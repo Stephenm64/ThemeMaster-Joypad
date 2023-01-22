@@ -518,6 +518,23 @@ int main(int argc, char* argv[]) {
       r2_key = 313;
       strcpy(inputstr, "/dev/input/by-path/platform-odroidgo3-joypad-event-joystick");
     }
+	else if (strcmp(argv[2], "ogu") == 0) {
+      back_key = 707;
+      start_key = 708;
+      a_key = 305;
+      b_key = 304;
+      x_key = 307;
+      y_key = 308;
+      up_key = 544;
+      down_key = 545;
+      left_key = 546;
+      right_key = 547;
+      l1_key = 310;
+      l2_key = 312;
+      r1_key = 311;
+      r2_key = 313;
+      strcpy(inputstr, "/dev/input/by-path/platform-gou_joypad-event-joystick");
+    }
     else if (strcmp(argv[2], "chi") == 0) {
       back_key = 314;
       start_key = 315;
@@ -586,7 +603,7 @@ int main(int argc, char* argv[]) {
         handle_event_anbernic(ev_joypad.type, ev_joypad.code, ev_joypad.value);
       }
       else {
-        // argv[2] = "rg552", "oga", "ogs", "chi"
+        // argv[2] = "rg552", "oga", "ogs", "ogu", "chi"
         handle_event_ogx(ev_joypad.type, ev_joypad.code, ev_joypad.value);
       }
 		}
