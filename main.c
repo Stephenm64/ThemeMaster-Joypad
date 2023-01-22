@@ -279,7 +279,7 @@ void handle_event_anbernic(int type, int code, int value) {
   }
 }
 
-//handle event for oga, ogs, rk2020, rg552 and chi devices
+//handle event for oga, ogs, ogu, rk2020, rg552 and chi devices
 void handle_event_ogx(int type, int code, int value) {
   if (type == 1) {
 		if (code == back_key && value == 1) {
@@ -431,7 +431,7 @@ int main(int argc, char* argv[]) {
   // second argument to be the name of gamepad
   // argv[0] = controls
   // argv[1] = ThemeMaster
-  // argv[2] = (oga, ogs, anbernic, chi, rg552)
+  // argv[2] = (oga, ogs, ogu, anbernic, chi, rg552)
   // argv[3] = debug (optional)
 
   // first 2 arguments required
