@@ -519,8 +519,8 @@ int main(int argc, char* argv[]) {
       strcpy(inputstr, "/dev/input/by-path/platform-odroidgo3-joypad-event-joystick");
     }
 	else if (strcmp(argv[2], "ogu") == 0) {
-      back_key = 707;
-      start_key = 708;
+      back_key = 704;
+      start_key = 709;
       a_key = 305;
       b_key = 304;
       x_key = 307;
